@@ -40,7 +40,7 @@ void test(){
 	t1.PostTask(new MainCPP_Task);
 	t2.PostTask(new MainCPP_Task);
 
-	//WaitForMultipleObjects(2, handles, TRUE, INFINITE);
+	WaitForMultipleObjects(2, handles, TRUE, INFINITE);
 }
 
 int Run(int argc, TCHAR* argv[]){
