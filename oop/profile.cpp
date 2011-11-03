@@ -1,18 +1,20 @@
 #include "Profile.h"
 #include "Service.h"
 #include "Thread.h"
+#include "types.h"
 
-Profile* g_Profile;
+Profile* Profile::self_ = NULL;
 
-Profile* Profile::Get()
+Profile* Profile::Instance()
 {
-	return g_Profile;
+    return self_;
 }
 
 Profile::Profile()
 {
+    CHECK(!self_);
 	Init();
-	g_Profile = this;
+    self_ = this;
 }
 
 Profile::~Profile()

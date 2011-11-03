@@ -8,12 +8,7 @@
 
 #include "Lock.h"
 #include "Service.h"
-
-class Task{
-public:
-	virtual ~Task(){}
-	virtual void Run() = 0;
-};
+#include "task.h"
 
 //////////////////////////////////////////////////////////////////////////
 class WaitableEvent{

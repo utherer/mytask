@@ -43,13 +43,13 @@ Thread::Thread( const std::string& thread_name )
 	:thread_name_(thread_name)
 {
 	thread_handle_ = ::CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ThreadFunc, this, 0, &thread_id_);
-	Profile::Get()->GetThreadManager()->OnThreadCreated(this);
+	Profile::Instance()->GetThreadManager()->OnThreadCreated(this);
 }
 
 Thread::~Thread(void)
 {
 	CloseHandle(thread_handle_);
-	Profile::Get()->GetThreadManager()->OnThreadDestoryed(this);
+	Profile::Instance()->GetThreadManager()->OnThreadDestoryed(this);
 }
 
 void Thread::ThreadMain()

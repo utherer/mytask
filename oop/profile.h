@@ -19,19 +19,20 @@ public:
 		SERVICE_COUNT
 	};
 
-	Profile();
-	~Profile();
-
-	static Profile* Get();
+	static Profile* Instance();
 
 	ResService* GetResService();
 	XxxService* GetXxxService();
 	ThreadManager* GetThreadManager();
 
 private:
+    friend class Application;
+    Profile();
+    ~Profile();
 	void Init();
 
 private:
 	Lock lock_;
 	Service* services_[SERVICE_COUNT];
+    static Profile* self_;
 };
